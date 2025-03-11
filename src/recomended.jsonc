@@ -143,4 +143,21 @@
       },
     },
   },
+  "overrides": [
+    {
+      "include": ["*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            // In tests we often access to properties with bracket syntax
+            "useLiteralKeys": "off",
+          },
+          "suspicious": {
+            // In tests we often use console logging
+            "noConsoleLog": "off",
+          },
+        },
+      },
+    },
+  ],
 }
