@@ -12,6 +12,9 @@
     "lineWidth": 120,
     "attributePosition": "auto",
     "bracketSpacing": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
     "ignore": [
       "**/lib",
       "**/.nyc_output",
@@ -45,5 +48,10 @@
       "enabled": true,
     },
     "globals": ["BigInt"],
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "none",
+    },
   },
 }
