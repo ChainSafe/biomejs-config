@@ -1,0 +1,30 @@
+{
+  "name": "biomejs-config",
+  "version": "0.1.0",
+  "author": "ChainSafe Systems",
+  "license": "MIT",
+  "homepage": "https://github.com/ChainSafe/biomejs-config#readme",
+  "repository": "git@github.com:ChainSafe/biomejs-config.git",
+  "bugs": {
+    "url": "https://github.com/ChainSafe/eslint-config/issues"
+  },
+  "keywords": [
+    "biomejs",
+    "linting",
+    "formatting"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./src/index.jsonc",
+    "./recommended": "./src/recomended.jsonc",
+    "./nodejs": "./src/nodejs.jsonc",
+    "./esm": "./src/esm.jsonc",
+    "./eraseable-syntax": "./src/eraseableSyntax.jsonc"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": "^1.9.4"
+  }
+}
