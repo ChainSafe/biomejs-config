@@ -8,4 +8,30 @@
       },
     },
   },
+  "overrides": [
+    // Code using console output
+    {
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": {
+              "level": "error",
+              "options": {
+                "conventions": [
+                  // For eraseable syntax we use `as const` as an alternate
+                  // and use the object properties to reflect the enum options
+                  {
+                    "selector": {
+                      "kind": "objectLiteralProperty",
+                    },
+                    "formats": ["camelCase", "PascalCase", "CONSTANT_CASE"],
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+  ],
 }
