@@ -1,0 +1,146 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "linter": {
+    "rules": {
+      "correctness": {
+        "noUnusedVariables": "error",
+        "useArrayLiterals": "error",
+        "noUndeclaredVariables": "error",
+        // TODO: We want this rule but it's not working properly with mono repos
+        "noUndeclaredDependencies": "off",
+      },
+      "performance": {
+        "noDelete": "error",
+      },
+      "style": {
+        // We prefer to use `Math.pow` over `**` operator
+        "useExponentiationOperator": "off",
+        // We prefer to have multiple declarations lines for variables
+        "useSingleVarDeclarator": "off",
+        "noCommaOperator": "error",
+        "noParameterAssign": "error",
+        "useLiteralEnumMembers": "error",
+        "useTemplate": "error",
+        // It's much readable to read code with `Number` namespace
+        "useNumberNamespace": "error",
+        "useNamingConvention": {
+          "level": "error",
+          "options": {
+            // It is common to use two consecutive capital case letters e.g. HTTPServer
+            // this option when set to true does not allow
+            "strictCase": false,
+            // Unicode characters are supported by IDEs but when used in variables
+            // code looks from another planet, so must be read by aliens
+            "requireAscii": true,
+            "conventions": [
+              // Skip __dirname and any variable starting with _, for rest check next convention
+              {
+                "selector": {
+                  "kind": "variable",
+                },
+                "match": "(?:__dirname)|(?:_.*)|(.*)",
+              },
+              {
+                "selector": {
+                  "kind": "variable",
+                },
+                "formats": ["camelCase", "CONSTANT_CASE"],
+              },
+              {
+                "selector": {
+                  "kind": "typeLike",
+                },
+                "formats": ["PascalCase"],
+              },
+              {
+                "selector": {
+                  "kind": "enum",
+                },
+                "formats": ["PascalCase"],
+              },
+              {
+                "selector": {
+                  "kind": "objectLiteralProperty",
+                },
+                "formats": ["camelCase", "CONSTANT_CASE"],
+              },
+              {
+                "selector": {
+                  "kind": "objectLiteralMethod",
+                },
+                "formats": ["camelCase", "CONSTANT_CASE"],
+              },
+              // Skip any property starting with _ and then check for next convention
+              {
+                "selector": {
+                  "kind": "classProperty",
+                },
+                "match": "(?:_.*)|(.*)",
+              },
+              {
+                "selector": {
+                  "kind": "classProperty",
+                },
+                "formats": ["camelCase", "CONSTANT_CASE"],
+              },
+              {
+                "selector": {
+                  "kind": "typeProperty",
+                },
+                "formats": ["camelCase", "PascalCase"],
+              },
+              {
+                "selector": {
+                  "kind": "typeMethod",
+                },
+                "formats": ["camelCase"],
+              },
+              {
+                "selector": {
+                  "kind": "enumMember",
+                },
+                "formats": ["PascalCase"],
+              },
+              {
+                "selector": {
+                  "kind": "indexParameter",
+                },
+                "formats": ["camelCase"],
+              },
+              {
+                "selector": {
+                  "kind": "function",
+                },
+                "formats": ["camelCase"],
+              },
+            ],
+          },
+        },
+      },
+      "suspicious": {
+        // `void` as type is useful when used as generic constraint e.g. K extends number | void
+        "noConfusingVoidType": "off",
+        "noEmptyBlockStatements": "error",
+        "noConsoleLog": "warn",
+      },
+      "nursery": {
+        // Need to enable this rule with exception to anonymous functions
+        "useExplicitType": "off",
+        "useConsistentMemberAccessibility": {
+          "level": "error",
+          "options": {
+            "accessibility": "noPublic",
+          },
+        },
+        "noDuplicateElseIf": "error",
+        "noUselessEscapeInRegex": "error",
+        "noIrregularWhitespace": "error",
+        "noOctalEscape": "error",
+        "useGuardForIn": "error",
+        "noDuplicateProperties": "error",
+        "useAtIndex": "error",
+        "useCollapsedIf": "error",
+      },
+    },
+  },
+}
