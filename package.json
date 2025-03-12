@@ -22,7 +22,8 @@
     "./eraseable-syntax": "./src/eraseableSyntax.jsonc"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4"
+    "@biomejs/biome": "^1.9.4",
+    "release-please": "^17.0.0"
   },
   "peerDependencies": {
     "@biomejs/biome": "^1.9.4"
