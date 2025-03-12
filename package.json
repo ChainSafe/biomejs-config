@@ -13,6 +13,9 @@
     "linting",
     "formatting"
   ],
+  "scripts": {
+    "release": "release-it"
+  },
   "type": "module",
   "exports": {
     ".": "./src/index.jsonc",
