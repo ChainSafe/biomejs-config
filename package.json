@@ -1,6 +1,6 @@
 {
   "name": "biomejs-config",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "ChainSafe Systems",
   "license": "MIT",
   "homepage": "https://github.com/ChainSafe/biomejs-config#readme",
@@ -22,7 +22,9 @@
     "./eraseable-syntax": "./src/eraseableSyntax.jsonc"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4"
+    "@biomejs/biome": "^1.9.4",
+    "@bob-obringer/conventional-changesets": "^0.5.0",
+    "@changesets/cli": "^2.28.1"
   },
   "peerDependencies": {
     "@biomejs/biome": "^1.9.4"
