@@ -4,7 +4,10 @@
   "author": "ChainSafe Systems",
   "license": "MIT",
   "homepage": "https://github.com/ChainSafe/biomejs-config#readme",
-  "repository": "git@github.com:ChainSafe/biomejs-config.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ChainSafe/biomejs-config.git"
+  },
   "bugs": {
     "url": "https://github.com/ChainSafe/eslint-config/issues"
   },
@@ -21,6 +24,12 @@
     "./esm": "./src/esm.jsonc",
     "./eraseable-syntax": "./src/eraseableSyntax.jsonc"
   },
+  "files": [
+    "src",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "devDependencies": {
     "@biomejs/biome": "^1.9.4"
   },
