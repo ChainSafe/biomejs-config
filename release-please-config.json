@@ -16,7 +16,7 @@
           "hidden": false
         },
         {
-          "type": "refact",
+          "type": "refactor",
           "section": "Improvements",
           "hidden": false
         },
@@ -32,6 +32,16 @@
         },
         {
           "type": "ci",
+          "section": "Miscellaneous",
+          "hidden": true
+        },
+        {
+          "type": "deps",
+          "section": "Miscellaneous",
+          "hidden": true
+        },
+        {
+          "type": "style",
           "section": "Miscellaneous",
           "hidden": true
         }
