@@ -11,6 +11,10 @@
   "bugs": {
     "url": "https://github.com/ChainSafe/eslint-config/issues"
   },
+  "scripts": {
+    "lint": "biome check src",
+    "lint:fix": "biome check --write src"
+  },
   "keywords": [
     "biomejs",
     "linting",
