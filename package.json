@@ -1,6 +1,6 @@
 {
-  "name": "biomejs-config",
-  "version": "0.1.1",
+  "name": "@chainsafe/biomejs-config",
+  "version": "0.0.0",
   "author": "ChainSafe Systems",
   "license": "MIT",
   "homepage": "https://github.com/ChainSafe/biomejs-config#readme",
