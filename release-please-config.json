@@ -27,23 +27,23 @@
         },
         {
           "type": "chore",
-          "section": "Miscellaneous",
+          "section": "Maintenance",
           "hidden": false
         },
         {
           "type": "ci",
-          "section": "Miscellaneous",
-          "hidden": true
+          "section": "Maintenance",
+          "hidden": false
         },
         {
           "type": "deps",
-          "section": "Miscellaneous",
-          "hidden": true
+          "section": "Maintenance",
+          "hidden": false
         },
         {
           "type": "style",
-          "section": "Miscellaneous",
-          "hidden": true
+          "section": "Maintenance",
+          "hidden": false
         }
       ]
     }
