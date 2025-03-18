@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/ChainSafe/biomejs-config/compare/v0.1.0...v0.1.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* package config ([#8](https://github.com/ChainSafe/biomejs-config/issues/8)) ([ac20d94](https://github.com/ChainSafe/biomejs-config/commit/ac20d9441c1ec31f0658f5957cdd65681f7b44c7))
+
 ## [0.1.0](https://github.com/ChainSafe/biomejs-config/compare/v0.1.0...v0.1.0) (2025-03-18)
 
 
