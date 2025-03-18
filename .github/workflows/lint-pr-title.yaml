@@ -26,3 +26,4 @@ jobs:
             refactor
             deps
             style
+            ci
