@@ -1,4 +1,4 @@
-name: Publish package to npmjs
+name: Release please to NPM
 on:
   push:
     branches:
