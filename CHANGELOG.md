@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.2.0](https://github.com/ChainSafe/biomejs-config/compare/v0.1.1...v0.2.0) (2025-03-18)
+## [0.1.0](https://github.com/ChainSafe/biomejs-config/compare/v0.0.0...v0.1.0) (2025-03-18)
 
 
 ### Features
@@ -17,5 +17,3 @@
 * ignore console and keys in tests ([fd0af88](https://github.com/ChainSafe/biomejs-config/commit/fd0af88fb70daab82ffd469d486535ededf1c113))
 * package config ([#8](https://github.com/ChainSafe/biomejs-config/issues/8)) ([ac20d94](https://github.com/ChainSafe/biomejs-config/commit/ac20d9441c1ec31f0658f5957cdd65681f7b44c7))
 * package name in the package file ([#17](https://github.com/ChainSafe/biomejs-config/issues/17)) ([269efef](https://github.com/ChainSafe/biomejs-config/commit/269efef483537d9989cc0197b463f72e942ce2b9))
-
-
