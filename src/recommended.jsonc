@@ -17,12 +17,13 @@
         "useExponentiationOperator": "off",
         // We prefer to have multiple declarations lines for variables
         "useSingleVarDeclarator": "off",
+        // Based on team discussion we decided to not enforce `Number` namespace.
+        // https://github.com/ChainSafe/ssz/pull/475#discussion_r1995814916
+        "useNumberNamespace": "off",
         "noCommaOperator": "error",
         "noParameterAssign": "error",
         "useLiteralEnumMembers": "error",
         "useTemplate": "error",
-        // It's much readable to read code with `Number` namespace
-        "useNumberNamespace": "error",
         "useNamingConvention": {
           "level": "error",
           "options": {
