@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": [
+    "./src/index.jsonc",
+    "./src/recomended.jsonc",
+    "./src/esm.jsonc",
+    "./src/nodejs.jsonc",
+    "./src/eraseableSyntax.jsonc"
+  ],
+  "files": {
+    "include": ["src/", "test/*.ts"]
+  }
+}
