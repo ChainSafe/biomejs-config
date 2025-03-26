@@ -23,10 +23,11 @@
   "type": "module",
   "exports": {
     ".": "./src/index.jsonc",
-    "./recommended": "./src/recomended.jsonc",
+    "./recommended": "./src/recommended.jsonc",
     "./nodejs": "./src/nodejs.jsonc",
     "./esm": "./src/esm.jsonc",
-    "./eraseable-syntax": "./src/eraseableSyntax.jsonc"
+    "./erasable-syntax": "./src/erasableSyntax.jsonc",
+    "./eraseable-syntax": "./src/erasableSyntax.jsonc"
   },
   "files": [
     "src",
