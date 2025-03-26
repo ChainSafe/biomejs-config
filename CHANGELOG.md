@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/ChainSafe/biomejs-config/compare/v0.1.0...v0.1.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* disable rule lint/style/useNumberNamespace ([#27](https://github.com/ChainSafe/biomejs-config/issues/27)) ([7da600c](https://github.com/ChainSafe/biomejs-config/commit/7da600c619a42dee254018e69d283a31c218f734))
+* update erasable syntax rule to allow only Enum prefix [#22](https://github.com/ChainSafe/biomejs-config/issues/22) ([859edf2](https://github.com/ChainSafe/biomejs-config/commit/859edf2b93b9e26aa4cc952b1d12bbdf7d5a7254))
+
 ## [0.1.0](https://github.com/ChainSafe/biomejs-config/compare/v0.0.0...v0.1.0) (2025-03-18)
 
 
