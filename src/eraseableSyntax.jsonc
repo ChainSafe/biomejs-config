@@ -1,112 +1,61 @@
 {
-	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-	"linter": {
-		"rules": {
-			"nursery": {
-				"noEnum": "error"
-				// Need to add a rule to restrict use of accessibility in constructor
-			}
-		}
-	},
-	"overrides": [
-		// When enum are not used objects are replaced those and their
-		// properties should be reflected as PascalCase style as for enum
-		// We can not override one style so have to add the full rule
-		{
-			"include": ["*"],
-			"linter": {
-				"rules": {
-					"style": {
-						"useNamingConvention": {
-							"level": "error",
-							"options": {
-								// It is common to use two consecutive capital case letters e.g. HTTPServer
-								// this option when set to true does not allow
-								"strictCase": false,
-								// Unicode characters are supported by IDEs but when used in variables
-								// code looks from another planet, so must be read by aliens
-								"requireAscii": true,
-								"conventions": [
-									// Skip __dirname and any variable starting with _, for rest check next convention
-									{
-										"selector": {
-											"kind": "variable"
-										},
-										"match": "(?:__dirname)|(?:_.*)|(.*)"
-									},
-									{
-										"selector": {
-											"kind": "variable"
-										},
-										"formats": ["camelCase", "PascalCase"]
-									},
-									{
-										"selector": {
-											"kind": "typeLike"
-										},
-										"formats": ["PascalCase"]
-									},
-									{
-										"selector": {
-											"kind": "objectLiteralProperty"
-										},
-										"formats": ["camelCase", "PascalCase", "CONSTANT_CASE"]
-									},
-									{
-										"selector": {
-											"kind": "objectLiteralMethod"
-										},
-										"formats": ["camelCase", "CONSTANT_CASE"]
-									},
-									// Skip any property starting with _ and then check for next convention
-									{
-										"selector": {
-											"kind": "classProperty"
-										},
-										"match": "(?:_.*)|(.*)"
-									},
-									{
-										"selector": {
-											"kind": "classProperty"
-										},
-										"formats": ["camelCase", "CONSTANT_CASE"]
-									},
-									{
-										"selector": {
-											"kind": "typeProperty"
-										},
-										"formats": ["camelCase", "PascalCase"]
-									},
-									{
-										"selector": {
-											"kind": "typeMethod"
-										},
-										"formats": ["camelCase"]
-									},
-									{
-										"selector": {
-											"kind": "enumMember"
-										},
-										"formats": ["PascalCase"]
-									},
-									{
-										"selector": {
-											"kind": "indexParameter"
-										},
-										"formats": ["camelCase"]
-									},
-									{
-										"selector": {
-											"kind": "function"
-										},
-										"formats": ["camelCase"]
-									}
-								]
-							}
-						}
-					}
-				}
-			}
-		}
-	]
+  "$schema": "../node_modules/@biomejs/biome/configuration_schema.json",
+  "linter": {
+    "rules": {
+      // TODO: Need to add a rule to restrict use of accessibility in constructor
+      "suspicious": {
+        // In Typescript erasable syntax enums are not allowed
+        // https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly
+        "noConstEnum": "error"
+      },
+      "nursery": {
+        // In Typescript erasable syntax enums are not allowed
+        // https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly
+        "noEnum": "error"
+      }
+    }
+  },
+  "overrides": [
+    // When enum are not used objects are replaced those and their
+    // properties should be reflected as PascalCase style as for enum
+    // We can not override one style so have to add the full rule
+    {
+      "include": ["*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": {
+              "level": "error",
+              "options": {
+                // It is common to use two consecutive capital case letters e.g. HTTPServer
+                // this option when set to true does not allow
+                "strictCase": false,
+                // Unicode characters are supported by IDEs but when used in variables
+                // code looks from another planet, so must be read by aliens
+                "requireAscii": true,
+                "conventions": [
+                  {
+                    // We want all enum variables to be prefixed by `Enum`
+                    // Only then allow variable to be PascalCase
+                    "selector": { "kind": "const" },
+                    "match": "(.+)Enum|[a-z][a-zA-Z0-9_]*",
+                    "formats": ["PascalCase"]
+                  },
+                  {
+                    "selector": { "kind": "variable" },
+                    "match": "(.+)Enum|[a-z][a-zA-Z0-9_]*",
+                    "formats": ["PascalCase"]
+                  },
+                  {
+                    "selector": { "kind": "objectLiteralProperty" },
+                    "formats": ["PascalCase", "camelCase"]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
 }
