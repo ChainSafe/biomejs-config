@@ -2,10 +2,10 @@
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": [
     "./src/index.jsonc",
-    "./src/recomended.jsonc",
+    "./src/recommended.jsonc",
     "./src/esm.jsonc",
     "./src/nodejs.jsonc",
-    "./src/eraseableSyntax.jsonc"
+    "./src/erasableSyntax.jsonc"
   ],
   "files": {
     "include": ["src/", "test/*.ts"]
