@@ -24,6 +24,8 @@
         "noParameterAssign": "error",
         "useLiteralEnumMembers": "error",
         "useTemplate": "error",
+        // Namespaces are deprecated way to organize modules in TS
+        "noNamespace": "error",
         "useNamingConvention": {
           "level": "error",
           "options": {
