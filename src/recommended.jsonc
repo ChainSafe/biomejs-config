@@ -7,10 +7,10 @@
         "useArrayLiterals": "error",
         "noUndeclaredVariables": "error",
         // TODO: We want this rule but it's not working properly with mono repos
-        "noUndeclaredDependencies": "off"
+        "noUndeclaredDependencies": "off",
       },
       "performance": {
-        "noDelete": "error"
+        "noDelete": "error",
       },
       "style": {
         // We prefer to use `Math.pow` over `**` operator
@@ -24,6 +24,8 @@
         "noParameterAssign": "error",
         "useLiteralEnumMembers": "error",
         "useTemplate": "error",
+        // Namespaces are deprecated way to organize modules in TS
+        "noNamespace": "error",
         "useNamingConvention": {
           "level": "error",
           "options": {
@@ -37,92 +39,92 @@
               // Skip __dirname and any variable starting with _, for rest check next convention
               {
                 "selector": {
-                  "kind": "variable"
+                  "kind": "variable",
                 },
-                "match": "(?:__dirname)|(?:_.*)|(.*)"
+                "match": "(?:__dirname)|(?:_.*)|(.*)",
               },
               {
                 "selector": {
-                  "kind": "variable"
+                  "kind": "variable",
                 },
-                "formats": ["camelCase", "CONSTANT_CASE"]
+                "formats": ["camelCase", "CONSTANT_CASE"],
               },
               {
                 "selector": {
-                  "kind": "typeLike"
+                  "kind": "typeLike",
                 },
-                "formats": ["PascalCase"]
+                "formats": ["PascalCase"],
               },
               {
                 "selector": {
-                  "kind": "enum"
+                  "kind": "enum",
                 },
-                "formats": ["PascalCase"]
+                "formats": ["PascalCase"],
               },
               {
                 "selector": {
-                  "kind": "objectLiteralProperty"
+                  "kind": "objectLiteralProperty",
                 },
-                "formats": ["camelCase", "CONSTANT_CASE"]
+                "formats": ["camelCase", "CONSTANT_CASE"],
               },
               {
                 "selector": {
-                  "kind": "objectLiteralMethod"
+                  "kind": "objectLiteralMethod",
                 },
-                "formats": ["camelCase", "CONSTANT_CASE"]
+                "formats": ["camelCase", "CONSTANT_CASE"],
               },
               // Skip any property starting with _ and then check for next convention
               {
                 "selector": {
-                  "kind": "classProperty"
+                  "kind": "classProperty",
                 },
-                "match": "(?:_.*)|(.*)"
+                "match": "(?:_.*)|(.*)",
               },
               {
                 "selector": {
-                  "kind": "classProperty"
+                  "kind": "classProperty",
                 },
-                "formats": ["camelCase", "CONSTANT_CASE"]
+                "formats": ["camelCase", "CONSTANT_CASE"],
               },
               {
                 "selector": {
-                  "kind": "typeProperty"
+                  "kind": "typeProperty",
                 },
-                "formats": ["camelCase", "PascalCase"]
+                "formats": ["camelCase", "PascalCase"],
               },
               {
                 "selector": {
-                  "kind": "typeMethod"
+                  "kind": "typeMethod",
                 },
-                "formats": ["camelCase"]
+                "formats": ["camelCase"],
               },
               {
                 "selector": {
-                  "kind": "enumMember"
+                  "kind": "enumMember",
                 },
-                "formats": ["PascalCase"]
+                "formats": ["PascalCase"],
               },
               {
                 "selector": {
-                  "kind": "indexParameter"
+                  "kind": "indexParameter",
                 },
-                "formats": ["camelCase"]
+                "formats": ["camelCase"],
               },
               {
                 "selector": {
-                  "kind": "function"
+                  "kind": "function",
                 },
-                "formats": ["camelCase"]
-              }
-            ]
-          }
-        }
+                "formats": ["camelCase"],
+              },
+            ],
+          },
+        },
       },
       "suspicious": {
         // `void` as type is useful when used as generic constraint e.g. K extends number | void
         "noConfusingVoidType": "off",
         "noEmptyBlockStatements": "error",
-        "noConsoleLog": "warn"
+        "noConsoleLog": "warn",
       },
       "nursery": {
         // Need to enable this rule with exception to anonymous functions
@@ -130,8 +132,8 @@
         "useConsistentMemberAccessibility": {
           "level": "error",
           "options": {
-            "accessibility": "noPublic"
-          }
+            "accessibility": "noPublic",
+          },
         },
         "noDuplicateElseIf": "error",
         "noUselessEscapeInRegex": "error",
@@ -140,9 +142,9 @@
         "useGuardForIn": "error",
         "noDuplicateProperties": "error",
         "useAtIndex": "error",
-        "useCollapsedIf": "error"
-      }
-    }
+        "useCollapsedIf": "error",
+      },
+    },
   },
   "overrides": [
     {
@@ -151,14 +153,14 @@
         "rules": {
           "complexity": {
             // In tests we often access to properties with bracket syntax
-            "useLiteralKeys": "off"
+            "useLiteralKeys": "off",
           },
           "suspicious": {
             // In tests we often use console logging
-            "noConsoleLog": "off"
-          }
-        }
-      }
-    }
-  ]
+            "noConsoleLog": "off",
+          },
+        },
+      },
+    },
+  ],
 }
