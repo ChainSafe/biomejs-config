@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.2](https://github.com/ChainSafe/biomejs-config/compare/v0.1.1...v0.1.2) (2025-05-07)
+
+
+### Bug Fixes
+
+* enable rule lint/suspicious/noConsole ([#30](https://github.com/ChainSafe/biomejs-config/issues/30)) ([bb04ec7](https://github.com/ChainSafe/biomejs-config/commit/bb04ec7622aedbf78a4f65badc2977dbd059da50))
+* use `noNamespace` rule as recommended  ([#28](https://github.com/ChainSafe/biomejs-config/issues/28)) ([64e7402](https://github.com/ChainSafe/biomejs-config/commit/64e7402d7e6335368f00eab2c2715efc6f132d92))
+
 ## [0.1.1](https://github.com/ChainSafe/biomejs-config/compare/v0.1.0...v0.1.1) (2025-03-26)
 
 
