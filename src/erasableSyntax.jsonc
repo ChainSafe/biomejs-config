@@ -37,17 +37,17 @@
                   {
                     // We want all enum variables to be prefixed by `Enum`
                     // Only then allow variable to be PascalCase
-                    "selector": {"kind": "const"},
+                    "selector": { "kind": "const" },
                     "match": "(.+)Enum|[a-z][a-zA-Z0-9_]*",
                     "formats": ["PascalCase"]
                   },
                   {
-                    "selector": {"kind": "variable"},
+                    "selector": { "kind": "variable" },
                     "match": "(.+)Enum|[a-z][a-zA-Z0-9_]*",
                     "formats": ["PascalCase"]
                   },
                   {
-                    "selector": {"kind": "objectLiteralProperty"},
+                    "selector": { "kind": "objectLiteralProperty" },
                     "formats": ["PascalCase", "camelCase"]
                   }
                 ]

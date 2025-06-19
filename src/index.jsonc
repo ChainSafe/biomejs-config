@@ -18,7 +18,7 @@
     "lineEnding": "lf",
     "includes": ["**", "!**/lib", "!**/.nyc_output", "!packages/**/*/spec-tests", "!**/node_modules"]
   },
-  "assist": {"actions": {"source": {"organizeImports": "on"}}},
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
@@ -45,7 +45,8 @@
   },
   "json": {
     "formatter": {
-      "trailingCommas": "none"
+      "trailingCommas": "none",
+      "bracketSpacing": true
     }
   }
 }
