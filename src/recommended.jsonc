@@ -2,9 +2,12 @@
   "$schema": "../node_modules/@biomejs/biome/configuration_schema.json",
   "linter": {
     "rules": {
+      "complexity": {
+        "noCommaOperator": "error",
+        "noUselessEscapeInRegex": "error"
+      },
       "correctness": {
         "noUnusedVariables": "error",
-        "useArrayLiterals": "error",
         "noUndeclaredVariables": "error",
         // TODO: We want this rule but it's not working properly with mono repos
         "noUndeclaredDependencies": "off"
@@ -13,6 +16,7 @@
         "noDelete": "error"
       },
       "style": {
+        "useArrayLiterals": "error",
         // We prefer to use `Math.pow` over `**` operator
         "useExponentiationOperator": "off",
         // We prefer to have multiple declarations lines for variables
@@ -20,7 +24,6 @@
         // Based on team discussion we decided to not enforce `Number` namespace.
         // https://github.com/ChainSafe/ssz/pull/475#discussion_r1995814916
         "useNumberNamespace": "off",
-        "noCommaOperator": "error",
         "noParameterAssign": "error",
         "useLiteralEnumMembers": "error",
         "useTemplate": "error",
@@ -118,46 +121,47 @@
               }
             ]
           }
+        },
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "noUnusedTemplateLiteral": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error",
+        "useAtIndex": "error",
+        "useCollapsedIf": "error",
+        "useConsistentMemberAccessibility": {
+          "level": "error",
+          "options": {
+            "accessibility": "noPublic"
+          }
         }
       },
       "suspicious": {
         // `void` as type is useful when used as generic constraint e.g. K extends number | void
         "noConfusingVoidType": "off",
         "noEmptyBlockStatements": "error",
-        "noConsole": "error"
+        "noConsole": "error",
+        "noDuplicateElseIf": "error",
+        "noIrregularWhitespace": "error",
+        "noOctalEscape": "error",
+        "useGuardForIn": "error"
       },
       "nursery": {
         // Need to enable this rule with exception to anonymous functions
-        "useExplicitType": "off",
-        "useConsistentMemberAccessibility": {
-          "level": "error",
-          "options": {
-            "accessibility": "noPublic"
-          }
-        },
-        "noDuplicateElseIf": "error",
-        "noUselessEscapeInRegex": "error",
-        "noIrregularWhitespace": "error",
-        "noOctalEscape": "error",
-        "useGuardForIn": "error",
-        "noDuplicateProperties": "error",
-        "useAtIndex": "error",
-        "useCollapsedIf": "error"
+        "useExplicitType": "off"
       }
     }
   },
   "overrides": [
     {
-      "include": ["*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js"],
+      "includes": ["**/*.test.ts", "**/*.test.js", "**/*.spec.ts", "**/*.spec.js"],
       "linter": {
         "rules": {
           "complexity": {
             // In tests we often access to properties with bracket syntax
             "useLiteralKeys": "off"
-          },
-          "suspicious": {
-            // In tests we often use console logging
-            "noConsoleLog": "off"
           }
         }
       }

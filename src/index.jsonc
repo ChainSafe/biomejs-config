@@ -1,4 +1,5 @@
 {
+  "root": false,
   "$schema": "../node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
     "clientKind": "git",
@@ -15,11 +16,9 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "ignore": ["**/lib", "**/.nyc_output", "./packages/*/spec-tests", "**/node_modules"]
+    "includes": ["**", "!**/lib", "!**/.nyc_output", "!packages/**/*/spec-tests", "!**/node_modules"]
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": {"actions": {"source": {"organizeImports": "on"}}},
   "linter": {
     "enabled": true,
     "rules": {
