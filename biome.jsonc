@@ -8,6 +8,6 @@
     "./src/erasableSyntax.jsonc"
   ],
   "files": {
-    "include": ["src/", "test/*.ts"]
+    "includes": ["**/src/**", "**/test/**/*.ts"]
   }
 }
