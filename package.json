@@ -27,7 +27,7 @@
   },
   "files": ["src", "LICENSE", "README.md", "CHANGELOG.md"],
   "devDependencies": {
-    "@biomejs/biome": "^2.0.0"
+    "@biomejs/biome": "2.0.0"
   },
   "peerDependencies": {
     "@biomejs/biome": "^2.0.0"
