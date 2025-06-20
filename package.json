@@ -15,11 +15,7 @@
     "lint": "biome check",
     "lint:fix": "biome check --write"
   },
-  "keywords": [
-    "biomejs",
-    "linting",
-    "formatting"
-  ],
+  "keywords": ["biomejs", "linting", "formatting"],
   "type": "module",
   "exports": {
     ".": "./src/index.jsonc",
@@ -29,12 +25,7 @@
     "./erasable-syntax": "./src/erasableSyntax.jsonc",
     "./eraseable-syntax": "./src/erasableSyntax.jsonc"
   },
-  "files": [
-    "src",
-    "LICENSE",
-    "README.md",
-    "CHANGELOG.md"
-  ],
+  "files": ["src", "LICENSE", "README.md", "CHANGELOG.md"],
   "devDependencies": {
     "@biomejs/biome": "^2.0.0"
   },

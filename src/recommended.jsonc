@@ -1,10 +1,16 @@
 {
   "$schema": "../node_modules/@biomejs/biome/configuration_schema.json",
   "linter": {
+    "domains": {
+      "test": "recommended"
+    },
     "rules": {
       "complexity": {
         "noCommaOperator": "error",
-        "noUselessEscapeInRegex": "error"
+        "noUselessEscapeInRegex": "error",
+        "noForEach": "error",
+        // Having explicit `undefined` makes code more readable
+        "noUselessUndefinedInitialization": "off"
       },
       "correctness": {
         "noUnusedVariables": "error",
@@ -156,12 +162,29 @@
   },
   "overrides": [
     {
-      "includes": ["**/*.test.ts", "**/*.test.js", "**/*.spec.ts", "**/*.spec.js"],
+      "includes": [
+        "**/test/**/*.ts",
+        "**/spec/**/*.ts",
+        "**/test/**/*.js",
+        "**/spec/**/*.js",
+        "**/*.test.ts",
+        "**/*.test.js",
+        "**/*.spec.ts",
+        "**/*.spec.js"
+      ],
       "linter": {
         "rules": {
           "complexity": {
             // In tests we often access to properties with bracket syntax
             "useLiteralKeys": "off"
+          },
+          "suspicious": {
+            // During tests it's quicker to define variables with `let` without specifying types
+            "noImplicitAnyLet": "off",
+            // During testing we use `any` type for quick assignments
+            "noExplicitAny": "off",
+            // Console logging is often used in tests
+            "noConsole": "off"
           }
         }
       }
