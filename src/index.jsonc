@@ -1,24 +1,88 @@
 {
   "$schema": "../node_modules/@biomejs/biome/configuration_schema.json",
-  "vcs": {
-    "clientKind": "git",
-    "enabled": true,
-    "useIgnoreFile": true
+  "assist": {
+    "actions": {
+      "recommended": true,
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              // TODO: Make sure to not enforce type for import/exports
+              // { "type": false },
+              [
+                // Bun modules
+                ":BUN:",
+                // Node.js modules
+                ":NODE:"
+              ],
+              ":BLANK_LINE:",
+              [
+                // Modules imported with the `npm:` protocol
+                "npm:*",
+                "npm:*/**",
+                // Modules imported with another protocol. e.g. `jsr:`
+                ":PACKAGE_WITH_PROTOCOL:"
+              ],
+              ":BLANK_LINE:",
+              ["@chainsafe/**", "@lodestar/**"],
+              ":BLANK_LINE:",
+              [
+                // URLs
+                ":URL:",
+                // Libraries
+                ":PACKAGE:"
+              ],
+              ":BLANK_LINE:",
+              // Sharp aliases
+              [":ALIAS:"],
+              ":BLANK_LINE:",
+              // Absolute paths
+              ["/**"],
+              ":BLANK_LINE:",
+              // All other paths
+              ":PATH:"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "files": {
+    "includes": ["!**/.nyc_output", "!**/node_modules", "!**/coverage/**/*"]
   },
   "formatter": {
-    "enabled": true,
-    "formatWithErrors": true,
-    "useEditorconfig": true,
-    "lineWidth": 120,
     "attributePosition": "auto",
     "bracketSpacing": false,
+    "enabled": true,
+    "formatWithErrors": true,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "ignore": ["**/lib", "**/.nyc_output", "./packages/*/spec-tests", "**/node_modules"]
+    "lineWidth": 120,
+    "useEditorconfig": true
   },
-  "organizeImports": {
-    "enabled": true
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "attributePosition": "auto",
+      "bracketSameLine": false,
+      "bracketSpacing": false,
+      "enabled": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "es5"
+    },
+    "globals": ["BigInt"]
+  },
+  "json": {
+    "formatter": {
+      "bracketSpacing": true,
+      "expand": "auto",
+      "trailingCommas": "none"
+    }
   },
   "linter": {
     "enabled": true,
@@ -26,27 +90,10 @@
       "recommended": true
     }
   },
-  "javascript": {
-    "formatter": {
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "trailingCommas": "es5",
-      "semicolons": "always",
-      "arrowParentheses": "always",
-      "bracketSpacing": false,
-      "bracketSameLine": false,
-      "quoteStyle": "double",
-      "attributePosition": "auto",
-      "enabled": true
-    },
-    "linter": {
-      "enabled": true
-    },
-    "globals": ["BigInt"]
-  },
-  "json": {
-    "formatter": {
-      "trailingCommas": "none"
-    }
+  "root": false,
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "useIgnoreFile": true
   }
 }

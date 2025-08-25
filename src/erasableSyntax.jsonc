@@ -2,16 +2,16 @@
   "$schema": "../node_modules/@biomejs/biome/configuration_schema.json",
   "linter": {
     "rules": {
+      "style": {
+        // In Typescript erasable syntax enums are not allowed
+        // https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly
+        "noEnum": "error"
+      },
       // TODO: Need to add a rule to restrict use of accessibility in constructor
       "suspicious": {
         // In Typescript erasable syntax enums are not allowed
         // https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly
         "noConstEnum": "error"
-      },
-      "nursery": {
-        // In Typescript erasable syntax enums are not allowed
-        // https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly
-        "noEnum": "error"
       }
     }
   },
@@ -20,37 +20,43 @@
     // properties should be reflected as PascalCase style as for enum
     // We can not override one style so have to add the full rule
     {
-      "include": ["*"],
+      "includes": ["**/*"],
       "linter": {
         "rules": {
           "style": {
             "useNamingConvention": {
               "level": "error",
               "options": {
-                // It is common to use two consecutive capital case letters e.g. HTTPServer
-                // this option when set to true does not allow
-                "strictCase": false,
+                "conventions": [
+                  {
+                    "formats": ["PascalCase"],
+                    "match": "(.+)Enum|[a-z][a-zA-Z0-9_]*",
+                    // We want all enum variables to be prefixed by `Enum`
+                    // Only then allow variable to be PascalCase
+                    "selector": {
+                      "kind": "const"
+                    }
+                  },
+                  {
+                    "formats": ["PascalCase"],
+                    "match": "(.+)Enum|[a-z][a-zA-Z0-9_]*",
+                    "selector": {
+                      "kind": "variable"
+                    }
+                  },
+                  {
+                    "formats": ["PascalCase", "camelCase"],
+                    "selector": {
+                      "kind": "objectLiteralProperty"
+                    }
+                  }
+                ],
                 // Unicode characters are supported by IDEs but when used in variables
                 // code looks from another planet, so must be read by aliens
                 "requireAscii": true,
-                "conventions": [
-                  {
-                    // We want all enum variables to be prefixed by `Enum`
-                    // Only then allow variable to be PascalCase
-                    "selector": { "kind": "const" },
-                    "match": "(.+)Enum|[a-z][a-zA-Z0-9_]*",
-                    "formats": ["PascalCase"]
-                  },
-                  {
-                    "selector": { "kind": "variable" },
-                    "match": "(.+)Enum|[a-z][a-zA-Z0-9_]*",
-                    "formats": ["PascalCase"]
-                  },
-                  {
-                    "selector": { "kind": "objectLiteralProperty" },
-                    "formats": ["PascalCase", "camelCase"]
-                  }
-                ]
+                // It is common to use two consecutive capital case letters e.g. HTTPServer
+                // this option when set to true does not allow
+                "strictCase": false
               }
             }
           }

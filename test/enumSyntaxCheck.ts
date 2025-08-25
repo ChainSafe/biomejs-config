@@ -1,7 +1,7 @@
 type EnumLike<T> = T[keyof T];
 
 export const SolarEnum = {
-  Sun: "sun",
   Earth: "earth",
+  Sun: "sun",
 } as const;
 export type Solar = EnumLike<typeof SolarEnum>;
