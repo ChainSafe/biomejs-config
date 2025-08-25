@@ -160,6 +160,16 @@
       }
     }
   },
+  "assist": { 
+    "actions": { 
+      "source": { 
+        "organizeImports": { "level": "on", "options": {"identifierOrder": "lexicographic"} }, 
+        "useSortedKeys": {"level": "on", "options": {"sortOrder": "lexicographic"}},
+        "useSortedAttributes": {"level": "on", "options": {"sortOrder": "lexicographic"}},
+        "useSortedProperties": {"level": "on", "options": {}}
+      }
+    }
+  },
   "overrides": [
     {
       "includes": [
