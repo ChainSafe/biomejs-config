@@ -1,53 +1,5 @@
 {
-  "root": false,
   "$schema": "../node_modules/@biomejs/biome/configuration_schema.json",
-  "vcs": {
-    "clientKind": "git",
-    "enabled": true,
-    "useIgnoreFile": true
-  },
-  "files": {
-    "includes": ["!**/.nyc_output", "!**/node_modules", "!**/coverage/**/*"]
-  },
-  "formatter": {
-    "enabled": true,
-    "formatWithErrors": true,
-    "useEditorconfig": true,
-    "lineWidth": 120,
-    "attributePosition": "auto",
-    "bracketSpacing": false,
-    "indentStyle": "space",
-    "indentWidth": 2,
-    "lineEnding": "lf"
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
-  },
-  "javascript": {
-    "formatter": {
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "trailingCommas": "es5",
-      "semicolons": "always",
-      "arrowParentheses": "always",
-      "bracketSpacing": false,
-      "bracketSameLine": false,
-      "quoteStyle": "double",
-      "attributePosition": "auto",
-      "enabled": true
-    },
-    "globals": ["BigInt"]
-  },
-  "json": {
-    "formatter": {
-      "trailingCommas": "none",
-      "bracketSpacing": true,
-      "expand": "auto"
-    }
-  },
   "assist": {
     "actions": {
       "recommended": true,
@@ -95,5 +47,53 @@
         }
       }
     }
+  },
+  "files": {
+    "includes": ["!**/.nyc_output", "!**/node_modules", "!**/coverage/**/*"]
+  },
+  "formatter": {
+    "attributePosition": "auto",
+    "bracketSpacing": false,
+    "enabled": true,
+    "formatWithErrors": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 120,
+    "useEditorconfig": true
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "attributePosition": "auto",
+      "bracketSameLine": false,
+      "bracketSpacing": false,
+      "enabled": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "es5"
+    },
+    "globals": ["BigInt"]
+  },
+  "json": {
+    "formatter": {
+      "bracketSpacing": true,
+      "expand": "auto",
+      "trailingCommas": "none"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
+  "root": false,
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "useIgnoreFile": true
   }
 }

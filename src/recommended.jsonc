@@ -1,5 +1,15 @@
 {
   "$schema": "../node_modules/@biomejs/biome/configuration_schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": { "level": "on", "options": { "identifierOrder": "lexicographic" } },
+        "useSortedAttributes": { "level": "on", "options": { "sortOrder": "lexicographic" } },
+        "useSortedKeys": { "level": "on", "options": { "sortOrder": "lexicographic" } },
+        "useSortedProperties": { "level": "on", "options": {} }
+      }
+    }
+  },
   "linter": {
     "domains": {
       "test": "recommended"
@@ -7,134 +17,33 @@
     "rules": {
       "complexity": {
         "noCommaOperator": "error",
-        "noUselessEscapeInRegex": "error",
         "noForEach": "error",
+        "noUselessEscapeInRegex": "error",
         // Having explicit `undefined` makes code more readable
         "noUselessUndefinedInitialization": "off"
       },
       "correctness": {
-        "noUnusedVariables": "error",
-        "noUndeclaredVariables": "error",
         // TODO: We want this rule but it's not working properly with mono repos
-        "noUndeclaredDependencies": "off"
+        "noUndeclaredDependencies": "off",
+        "noUndeclaredVariables": "error",
+        "noUnusedVariables": "error"
+      },
+      "nursery": {
+        // Need to enable this rule with exception to anonymous functions
+        "useExplicitType": "off"
       },
       "performance": {
         "noDelete": "error"
       },
       "style": {
-        "useArrayLiterals": "error",
-        // We prefer to use `Math.pow` over `**` operator
-        "useExponentiationOperator": "off",
-        // We prefer to have multiple declarations lines for variables
-        "useSingleVarDeclarator": "off",
-        // Based on team discussion we decided to not enforce `Number` namespace.
-        // https://github.com/ChainSafe/ssz/pull/475#discussion_r1995814916
-        "useNumberNamespace": "off",
-        "noParameterAssign": "error",
-        "useLiteralEnumMembers": "error",
-        "useTemplate": "error",
+        "noInferrableTypes": "error",
         // Namespaces are deprecated way to organize modules in TS
         "noNamespace": "error",
-        "useNamingConvention": {
-          "level": "error",
-          "options": {
-            // It is common to use two consecutive capital case letters e.g. HTTPServer
-            // this option when set to true does not allow
-            "strictCase": false,
-            // Unicode characters are supported by IDEs but when used in variables
-            // code looks from another planet, so must be read by aliens
-            "requireAscii": true,
-            "conventions": [
-              // Skip __dirname and any variable starting with _, for rest check next convention
-              {
-                "selector": {
-                  "kind": "variable"
-                },
-                "match": "(?:__dirname)|(?:_.*)|(.*)"
-              },
-              {
-                "selector": {
-                  "kind": "variable"
-                },
-                "formats": ["camelCase", "CONSTANT_CASE"]
-              },
-              {
-                "selector": {
-                  "kind": "typeLike"
-                },
-                "formats": ["PascalCase"]
-              },
-              {
-                "selector": {
-                  "kind": "enum"
-                },
-                "formats": ["PascalCase"]
-              },
-              {
-                "selector": {
-                  "kind": "objectLiteralProperty"
-                },
-                "formats": ["camelCase", "CONSTANT_CASE"]
-              },
-              {
-                "selector": {
-                  "kind": "objectLiteralMethod"
-                },
-                "formats": ["camelCase", "CONSTANT_CASE"]
-              },
-              // Skip any property starting with _ and then check for next convention
-              {
-                "selector": {
-                  "kind": "classProperty"
-                },
-                "match": "(?:_.*)|(.*)"
-              },
-              {
-                "selector": {
-                  "kind": "classProperty"
-                },
-                "formats": ["camelCase", "CONSTANT_CASE"]
-              },
-              {
-                "selector": {
-                  "kind": "typeProperty"
-                },
-                "formats": ["camelCase", "PascalCase"]
-              },
-              {
-                "selector": {
-                  "kind": "typeMethod"
-                },
-                "formats": ["camelCase"]
-              },
-              {
-                "selector": {
-                  "kind": "enumMember"
-                },
-                "formats": ["PascalCase"]
-              },
-              {
-                "selector": {
-                  "kind": "indexParameter"
-                },
-                "formats": ["camelCase"]
-              },
-              {
-                "selector": {
-                  "kind": "function"
-                },
-                "formats": ["camelCase"]
-              }
-            ]
-          }
-        },
-        "useAsConstAssertion": "error",
-        "useDefaultParameterLast": "error",
-        "useEnumInitializers": "error",
-        "useSelfClosingElements": "error",
+        "noParameterAssign": "error",
         "noUnusedTemplateLiteral": "error",
-        "noInferrableTypes": "error",
         "noUselessElse": "error",
+        "useArrayLiterals": "error",
+        "useAsConstAssertion": "error",
         "useAtIndex": "error",
         "useCollapsedIf": "error",
         "useConsistentMemberAccessibility": {
@@ -142,31 +51,122 @@
           "options": {
             "accessibility": "noPublic"
           }
-        }
+        },
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        // We prefer to use `Math.pow` over `**` operator
+        "useExponentiationOperator": "off",
+        "useLiteralEnumMembers": "error",
+        "useNamingConvention": {
+          "level": "error",
+          "options": {
+            "conventions": [
+              // Skip __dirname and any variable starting with _, for rest check next convention
+              {
+                "match": "(?:__dirname)|(?:_.*)|(.*)",
+                "selector": {
+                  "kind": "variable"
+                }
+              },
+              {
+                "formats": ["camelCase", "CONSTANT_CASE"],
+                "selector": {
+                  "kind": "variable"
+                }
+              },
+              {
+                "formats": ["PascalCase"],
+                "selector": {
+                  "kind": "typeLike"
+                }
+              },
+              {
+                "formats": ["PascalCase"],
+                "selector": {
+                  "kind": "enum"
+                }
+              },
+              {
+                "formats": ["camelCase", "CONSTANT_CASE"],
+                "selector": {
+                  "kind": "objectLiteralProperty"
+                }
+              },
+              {
+                "formats": ["camelCase", "CONSTANT_CASE"],
+                "selector": {
+                  "kind": "objectLiteralMethod"
+                }
+              },
+              // Skip any property starting with _ and then check for next convention
+              {
+                "match": "(?:_.*)|(.*)",
+                "selector": {
+                  "kind": "classProperty"
+                }
+              },
+              {
+                "formats": ["camelCase", "CONSTANT_CASE"],
+                "selector": {
+                  "kind": "classProperty"
+                }
+              },
+              {
+                "formats": ["camelCase", "PascalCase"],
+                "selector": {
+                  "kind": "typeProperty"
+                }
+              },
+              {
+                "formats": ["camelCase"],
+                "selector": {
+                  "kind": "typeMethod"
+                }
+              },
+              {
+                "formats": ["PascalCase"],
+                "selector": {
+                  "kind": "enumMember"
+                }
+              },
+              {
+                "formats": ["camelCase"],
+                "selector": {
+                  "kind": "indexParameter"
+                }
+              },
+              {
+                "formats": ["camelCase"],
+                "selector": {
+                  "kind": "function"
+                }
+              }
+            ],
+            // Unicode characters are supported by IDEs but when used in variables
+            // code looks from another planet, so must be read by aliens
+            "requireAscii": true,
+            // It is common to use two consecutive capital case letters e.g. HTTPServer
+            // this option when set to true does not allow
+            "strictCase": false
+          }
+        },
+        // Based on team discussion we decided to not enforce `Number` namespace.
+        // https://github.com/ChainSafe/ssz/pull/475#discussion_r1995814916
+        "useNumberNamespace": "off",
+        "useSelfClosingElements": "error",
+        // We prefer to have multiple declarations lines for variables
+        "useSingleVarDeclarator": "off",
+        "useTemplate": "error"
       },
       "suspicious": {
         // `void` as type is useful when used as generic constraint e.g. K extends number | void
         "noConfusingVoidType": "off",
-        "noEmptyBlockStatements": "error",
         "noConsole": "error",
         "noDuplicateElseIf": "error",
+        "noEmptyBlockStatements": "error",
         "noIrregularWhitespace": "error",
         "noOctalEscape": "error",
         "useGuardForIn": "error"
-      },
-      "nursery": {
-        // Need to enable this rule with exception to anonymous functions
-        "useExplicitType": "off"
-      }
-    }
-  },
-  "assist": { 
-    "actions": { 
-      "source": { 
-        "organizeImports": { "level": "on", "options": {"identifierOrder": "lexicographic"} }, 
-        "useSortedKeys": {"level": "on", "options": {"sortOrder": "lexicographic"}},
-        "useSortedAttributes": {"level": "on", "options": {"sortOrder": "lexicographic"}},
-        "useSortedProperties": {"level": "on", "options": {}}
       }
     }
   },
@@ -189,12 +189,12 @@
             "useLiteralKeys": "off"
           },
           "suspicious": {
-            // During tests it's quicker to define variables with `let` without specifying types
-            "noImplicitAnyLet": "off",
+            // Console logging is often used in tests
+            "noConsole": "off",
             // During testing we use `any` type for quick assignments
             "noExplicitAny": "off",
-            // Console logging is often used in tests
-            "noConsole": "off"
+            // During tests it's quicker to define variables with `let` without specifying types
+            "noImplicitAnyLet": "off"
           }
         }
       }

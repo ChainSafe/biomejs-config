@@ -1,5 +1,4 @@
 {
-  "root": false,
   "$schema": "../node_modules/@biomejs/biome/configuration_schema.json",
   "linter": {
     "rules": {
@@ -16,13 +15,14 @@
               "os": "Please use node:os instead.",
               "path": "Please use node:path instead.",
               "stream": "Please use node:stream instead.",
-              "util": "Please use node:util instead.",
               "url": "Please use node:url instead.",
+              "util": "Please use node:util instead.",
               "worker_threads": "Please use node:worker_threads instead."
             }
           }
         }
       }
     }
-  }
+  },
+  "root": false
 }
